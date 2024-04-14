@@ -59,4 +59,7 @@ int main()
     {
         std::cout << i << std::endl;
     }
+    /*
+    If you declare vector so on online compiler you cannot excede 10^5 locally and 10^7 globally
+    */
 }
