@@ -2,7 +2,11 @@
 using namespace std;
 void print_vector(vector<int> v)
 {
-    vector<int>::iterator vec;
+    /*
+    for(int i=0;i<v.size();i++){
+        cout<<v[i]<<endl;
+    }
+    */
     for (auto i : v)
     {
         cout << i << endl;
