@@ -64,10 +64,12 @@ int main()
     // output
     for (int i = 0; i < vv.size(); i++)
     {
-        for (int j = 0; j < vv[i].size(); j++)
-        {
-            std::cout << vv[i][j] << "  ";
-        }
+        // for (int j = 0; j < vv[i].size(); j++)
+        // {
+        //     std::cout << vv[i][j] << "  ";
+        // }
+        for (auto i : vv[i])
+            std::cout << i << "  ";
         std::cout << std::endl;
     }
     // for (int i = 0; i < N; i++)
