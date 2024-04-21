@@ -3,46 +3,34 @@ using namespace std;
 
 int numberOfSpecialChars(string word)
 {
-    bool valid = true;
-    map<char, int> ms;
-    vector<char> hit;
-    int count{0};
-    for (int i : word)
+    int count = 0;
+    unordered_map<char, int> m1, m2;
+    for (int i = 0; i < word.size(); i++)
     {
-        if (i > 96)
-            ms[i]++;
-        for (auto &j : ms)
+        if (word[i] >= 'a')
         {
-            if (j.first - i == 32 && j.second > 0)
+            m1[word[i]] = i;
+        }
+        else
+        {
+            if (m2.find(word[i]) == m2.end())
             {
-                count++;
-                j.second--;
-                hit.push_back(j.first);
+                m2[word[i]] = i;
             }
         }
     }
-    for (auto &i : hit)
+    for (auto a : m1)
     {
-        for (auto j : word)
+        if (a.second < m2[char(a.first - 32)])
         {
-            if (i == j)
-            {
-                valid = false;
-            }
-            else if (i == j + 32)
-            {
-                valid = true;
-            }
-        }
-        if (!valid)
-        {
-            count--;
+            count++;
         }
     }
     return count;
 }
 int main()
 {
-    string s = "dcbCC";
+    string s = "dcbdDDBCCc";
+
     cout << numberOfSpecialChars(s);
 }
